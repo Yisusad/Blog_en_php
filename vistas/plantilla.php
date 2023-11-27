@@ -56,6 +56,22 @@
 
 </head>
 
+<?php
+
+	#Modulos fijos superiores
+	include "paginas/modulos/cabecera.php";
+	include "paginas/modulos/redes-sociales-movil.php";
+	include "paginas/modulos/buscador-movil.php";
+	include "paginas/modulos/menu.php";
+
+	#Navegar entre paginas
+	include "paginas/articulos.php";
+
+	#Modulos fijos inferiores
+	include "paginas/modulos/footer.php";
+
+?>
+
 <body>
 
 <script src="vistas/js/script.js"></script>
