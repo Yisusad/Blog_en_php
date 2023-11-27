@@ -13,7 +13,7 @@ CABECERA
 				
 				<a href="index.html">
 					
-					<img src="vistas/img/logotipo-negativo.png" alt="Logo de Juanito Travel" class="img-fluid logotipo">
+					<img src="<?php echo $blog["logo"]; ?>" alt="Logo de Chokobot" class="img-fluid logotipo">
 
 				</a>
 
@@ -23,37 +23,27 @@ CABECERA
 			<div class="d-none d-md-block col-md-2 redes">
 				
 				<ul class="d-flex justify-content-end pt-3 mt-1">
+
+				
 					
-					<li>
-						<a href="https://www.facebook.com" target="_blank">
-							<i class="fab fa-facebook-f lead rounded-circle text-white mr-1"></i>
-						</a>
-					</li>
+					<?php
+						#Recorrer el array de redes sociales
+						#Esto elimina cualquier carácter de control de la cadena antes de intentar decodificar el JSON.
+						$redes_sociales_cleaned = preg_replace('/[[:cntrl:]]/', '', $blog["redes_sociales"]);
+						$redes_sociales = json_decode($redes_sociales_cleaned, true, 512);
 
-					<li>
-						<a href="#" target="_blank">
-							<i class="fab fa-instagram lead rounded-circle text-white mr-1"></i>
-						</a>
-					</li>
+						
+						foreach ($redes_sociales as $key => $value) {
+							
+							echo '<li>
+								<a href="'.$value["url"].'" target="_blank">
+									<i class="'.$value["icono"].' lead rounded-circle text-white mr-1"></i>
+								</a>
+							</li>';
+						}
 
-					<li>
-						<a href="#" target="_blank">
-							<i class="fab fa-twitter lead rounded-circle text-white mr-1"></i>
-						</a>
-					</li>
-
-					<li>
-						<a href="#" target="_blank">
-							<i class="fab fa-youtube lead rounded-circle text-white mr-1"></i>
-						</a>
-					</li>
-
-					<li>
-						<a href="#" target="_blank">
-							<i class="fab fa-snapchat-ghost lead rounded-circle text-white mr-1"></i>
-						</a>
-					</li>
-
+					?>
+					
 				</ul>
 
 			</div>

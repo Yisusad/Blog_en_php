@@ -14,10 +14,28 @@ $blog = ControladorBlog::ctrMostrarBlog();
 
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	
-	<title>Chokobot Blog</title>
+	<title><?php echo $blog["titulo"]; ?></title>
 
 	<meta name="title" content="Chokobot Blog">
-	<meta name="description" content="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias aliquid laboriosam suscipit magnam distinctio nisi eaque expedita beatae neque nobis dolores corporis laudantium quo voluptatum facilis, aliquam sed deleniti delectus.">
+	<meta name="description" content= <?php echo $blog["descripcion"]; ?> >
+
+	<?php
+		$palabras_claves = json_decode($blog["palabras_claves"], true);
+
+		#Recorremos el array de palabras claves
+		$p_claves = "";
+
+		foreach ($palabras_claves as $key => $value) {
+			
+			$p_claves .= $value.", ";
+		}
+
+		#substr corta una cadena de texto, quitamos los dos ultimos caracteres, espacio y coma
+		$p_claves = substr($p_claves, 0, -2);
+
+	?>
+
+	<meta name="keywords" content= <?php echo $p_claves; ?> >
 
 	<link rel="icon" href="vistas/img/icono.png">
 
