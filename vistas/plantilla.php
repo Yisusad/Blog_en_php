@@ -1,3 +1,11 @@
+<?php
+
+$blog = ControladorBlog::ctrMostrarBlog();
+
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,6 +15,9 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	
 	<title>Chokobot Blog</title>
+
+	<meta name="title" content="Chokobot Blog">
+	<meta name="description" content="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias aliquid laboriosam suscipit magnam distinctio nisi eaque expedita beatae neque nobis dolores corporis laudantium quo voluptatum facilis, aliquam sed deleniti delectus.">
 
 	<link rel="icon" href="vistas/img/icono.png">
 
@@ -65,7 +76,7 @@
 	include "paginas/modulos/menu.php";
 
 	#Navegar entre paginas
-	include "paginas/articulos.php";
+	include "paginas/inicio.php";
 
 	#Modulos fijos inferiores
 	include "paginas/modulos/footer.php";
